@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link href="http://localhost:8000/ace/style.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<body>
+
+		<div id="editor"></div>
+
+		<script src="http://localhost:8000/lib/ace/ace.js" type="text/javascript" charset="utf-8"></script>
+        <script src="http://localhost:8000/channel/bcsocket.js"></script>
+		<script src="http://localhost:8000/share/share.uncompressed.js"></script>
+		<script src="http://localhost:8000/share/ace.js"></script>
+
+		<script>
+var editor = ace.edit("editor");
+
+sharejs.open('hello', 'text', function(error, doc) {
+	doc.attach_ace(editor);
+});
+		</script>
+	</body>
+</html>	
+
