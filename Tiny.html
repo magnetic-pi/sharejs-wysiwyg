@@ -120,50 +120,37 @@ $(document).ready(function () {
  
      $(".btn-toolbar").click(function () { $textarea.val($textareaEditor.html()); });
 
-
-
-
 });
   
     </script>
 
 <script>
-
         $('#textarea-editor').keyup(function () {
-        //var connection = sharejs.open('blag', 'text', 'http://localhost:8000/channel', function(error, doc) {
 		    $("#textarea").val($('#textarea-editor').html()); 
-          //  var $text = $('#textarea').val();
-            //var $textareaEditor = $('#textarea-editor');
-            //if (error) {
-	  		//    console.log(error);
-	  	    //} else {
-		      //  var temp = $("#textarea").val($('#textarea-editor').html()); 
-                //console.log(temp.val());
-                //valueT = temp.val();
-                //console.log(valueT);
-	  		    //$text.val($('#textarea-editor').html());
-                //temp.disabled = false;
                 $('#textarea').trigger('keyup');
-	  		    //doc.attach_textarea(valueT);
-                //alert(temp.val());
-	  	    //}
 	    });
-	  
-      //});
-
-
 </script>
 
 <script>
         $('#textarea').bind('keyup', function(e){
             console.log(e);
-            var connection = sharejs.open('blag', 'text', 'http://localhost:8000/channel', function(error, doc) {
-		        var temp = $("#textarea").val($('#textarea-editor').html()); 
-                valueT = temp.val();
-                temp.disabled = false;
-	  		    doc.attach_textarea(valueT);
-            });
+             $('#textarea').focus();
+             $('#textarea').trigger('change');
+             //$('#textarea-editor').focus();
+//            var connection = sharejs.open('blag', 'text', 'http://localhost:8000/channel', function(error, doc) {
+//		        var temp = $("#textarea").val($('#textarea-editor').html()); 
+//                valueT = temp.val();
+//                temp.disabled = false;
+//	  		    doc.attach_textarea(valueT);
+//            });
         });
+</script>
+
+<script>
+    $('textarea').bind('change', function(){
+        $('#textarea').blur();
+        $('#textarea-editor').focus();
+    });
 </script>
 
 </body>
