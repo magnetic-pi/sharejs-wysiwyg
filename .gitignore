@@ -10,5 +10,6 @@ libpeerconnection.log
 pids
 logs
 results
-
+.*.*.swo
+*.swo
 npm-debug.log
