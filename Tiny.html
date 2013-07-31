@@ -3,7 +3,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
     <script src="http://localhost:8000/channel/bcsocket.js"></script>
-    <script src="http://localhost:8000/share/share.js"></script>
     <script src="http://localhost:8000/share/share.uncompressed.js"></script>
     <script src="http://localhost:10000/Tiny_files/textarea2.js"></script>
     <script src="http://localhost:8000/share/json.js"></script>
@@ -99,13 +98,14 @@ $(document).ready(function () {
   var $textarea = $('#textarea');
   var $textareaEditor = $('#textarea-editor');
   
-	  var connection = sharejs.open('blag', 'text', 'http://localhost:8000/channel', function(error, doc) {
+	  var connection = sharejs.open('blag1', 'text', 'http://localhost:8000/channel', function(error, doc) {
             if (error) {
 	  		    console.log(error);
 	  	    } else {
 	  		    $textarea.disabled = false;
 	  		   // $textarea.attachEvent('keyup');
                 doc.attach_textarea($textarea[0]);
+                doc.attach_textarea($textareaEditor[0]);
 			    $textareaEditor.html($textarea.val());
 	  	    }
         
@@ -113,44 +113,43 @@ $(document).ready(function () {
         });
      
      //$textarea.keyup(function () { $textareaEditor.html($textarea.val()); });
-     $textarea.on('change', function () { $textareaEditor.html($textarea.val()); });
+     //$textarea.on('change', function () { $textareaEditor.html($textarea.val()); });
      
         
      //$textareaEditor.keyup(function () {	 $textarea.val($textareaEditor.html()); });
  
-     $(".btn-toolbar").click(function () { $textarea.val($textareaEditor.html()); });
+     $(".btn-toolbar").click(function () { 
+        $textarea.val($textareaEditor.html()); 
+        $('#textarea').focus();    
+    });
+
 
 });
   
     </script>
 
 <script>
-        $('#textarea-editor').keyup(function () {
+    $('.editor').keyup(function (e) {
 		    $("#textarea").val($('#textarea-editor').html()); 
-                $('#textarea').trigger('keyup');
+    //        $('#textarea').trigger('keyup');
+            console.log(e);
 	    });
 </script>
 
 <script>
-        $('#textarea').bind('keyup', function(e){
-            console.log(e);
-             $('#textarea').focus();
-             $('#textarea').trigger('change');
-             //$('#textarea-editor').focus();
-//            var connection = sharejs.open('blag', 'text', 'http://localhost:8000/channel', function(error, doc) {
-//		        var temp = $("#textarea").val($('#textarea-editor').html()); 
-//                valueT = temp.val();
-//                temp.disabled = false;
-//	  		    doc.attach_textarea(valueT);
-//            });
-        });
+    //   $('#textarea').bind('keyup propertychange', function(e){
+    //         $('#textarea').focus();
+    //         $("#textarea").val($('.editor').html());
+    //   //      $('#textarea').focus();
+    //        console.log(e);
+    //    });
 </script>
 
 <script>
-    $('textarea').bind('change', function(){
-        $('#textarea').blur();
-        $('#textarea-editor').focus();
-    });
+   // $('textarea').bind('change', function(){
+   //     $('#textarea').blur();
+   //     $('#textarea-editor').focus();
+   // });
 </script>
 
 </body>

@@ -41,26 +41,29 @@ $(document).ready(function () {
 </script>
 
 <script>
-        $('.editor').keyup(function () {
-	  		    console.log($('#purpose').val());
-                $('#purpose').trigger('keyup');
-	    });
+        //$('.editor').keyup(function () {
+        //
+	  	//	    $("#purpose").val($('.editor').val());
+        //        //console.log($('#purpose').val());
+        //        $('#purpose').trigger('change');
+	    //});
 </script>
 
 <script>
-        $('#purpose').bind('keyup propertychange', function(e){
-            //$("#purpose").focus();
-            $("#purpose").val($('#purpose-editor').val());
-            $("#purpose").focus();
-            console.log($("#purpose").val());
-        });
+        //$('#purpose').change(function(e){
+        //    //$("#purpose").focus();
+        //    $("#purpose").val($('.editor').val());
+        //    console.log(e);
+        //    //$(".editor").focus();
+        //    console.log($("#purpose").val());
+        //});
 </script>
 
 <script>
-        $('#purpose').bind('change', function(){
-            
-        
-        });
+//        $('#purpose').bind('change', function(){
+//            
+//        
+//        });
         //$('#purpose-editor').bind('input propertychange', function(e){ 
         //    $('#purpose-editor').focus();
         //});
