@@ -1,36 +1,28 @@
 <html>   
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
-    <script src="http://localhost:8000/channel/bcsocket.js"></script>
-    <script src="http://localhost:8000/share/share.uncompressed.js"></script>
-    <script src="http://localhost:10000/Tiny_files/textarea2.js"></script>
-    <script src="http://localhost:8000/share/json.js"></script>
-
-
-
-
+<head>
+	<link href="./Tiny_files/index.css" rel="stylesheet">
     <link rel="apple-touch-icon" href="http://mindmup.s3.amazonaws.com/lib/img/apple-touch-icon.png">
     <link href="http://twitter.github.com/bootstrap/assets/js/google-code-prettify/prettify.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-responsive.min.css" rel="stylesheet">
 	<link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
+</head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.17/jquery-ui.min.js"></script>
+    <script src="http://localhost:8000/channel/bcsocket.js"></script>
+    <script src="http://localhost:8000/share/share.uncompressed.js"></script>
+    <script src="http://localhost:10000/Tiny_files/share-wysiwyg.js"></script>
+    <script src="http://localhost:8000/share/json.js"></script>
     <script id="twitter-wjs" src="./Tiny_files/widgets.js"></script>
     <script src="./Tiny_files/jquery.min.js"></script>
 	<script src="./Tiny_files/jquery.hotkeys.js"></script>
     <script src="./Tiny_files/bootstrap.min.js"></script>
     <script src="./Tiny_files/prettify.js"></script>
     <script src="./Tiny_files/editor.js"></script>
-	<link href="./Tiny_files/index.css" rel="stylesheet">
     <script src="./Tiny_files/bootstrap-wysiwyg.js"></script>
 
-
-
-</head>
-
-  <body>
-
-
+<body>
 <div class="container">
   <div id="editor-txtbtn-grp">
 	
@@ -90,7 +82,7 @@
   </div>
     
     <div id="textarea-editor" class="editor" contenteditable="true"></div>
-    <textarea id="textarea" placeholder="this is a test"></textarea>
+    <textarea id="textarea" class="editor-textarea" placeholder="this is a test"></textarea>
 
 <script>
 $(document).ready(function () {
@@ -103,53 +95,11 @@ $(document).ready(function () {
 	  		    console.log(error);
 	  	    } else {
 	  		    $textarea.disabled = false;
-	  		   // $textarea.attachEvent('keyup');
                 doc.attach_textarea($textarea[0]);
-                doc.attach_textarea($textareaEditor[0]);
 			    $textareaEditor.html($textarea.val());
 	  	    }
-        
-        
         });
-     
-     //$textarea.keyup(function () { $textareaEditor.html($textarea.val()); });
-     //$textarea.on('change', function () { $textareaEditor.html($textarea.val()); });
-     
-        
-     //$textareaEditor.keyup(function () {	 $textarea.val($textareaEditor.html()); });
- 
-     $(".btn-toolbar").click(function () { 
-        $textarea.val($textareaEditor.html()); 
-        $('#textarea').focus();    
-    });
-
-
 });
-  
-    </script>
-
-<script>
-    //$('.editor').keyup(function (e) {
-	//	    $("#textarea").val($('#textarea-editor').html()); 
-    //        $('#textarea').trigger('keyup');
-    //        console.log(e);
-	//    });
-</script>
-
-<script>
-    //   $('#textarea').bind('keyup propertychange', function(e){
-    //         $('#textarea').focus();
-    //         $("#textarea").val($('.editor').html());
-    //   //      $('#textarea').focus();
-    //        console.log(e);
-    //    });
-</script>
-
-<script>
-   // $('textarea').bind('change', function(){
-   //     $('#textarea').blur();
-   //     $('#textarea-editor').focus();
-   // });
 </script>
 
 </body>

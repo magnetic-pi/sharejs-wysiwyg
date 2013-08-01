@@ -108,22 +108,26 @@
       }
     }
     
+    //$(elem).on('load select', genOp);
+ 
     $('.editor').keyup(function () {
-     //_ref = ['keyup'];
-     //for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-     // event = _ref[_i];
-      //console.log(event);
-      $("#textarea").val($('#textarea-editor').html());
-      if (elem.addEventListener) {
-        elem.addEventListener(event, genOp, false);
-        console.log('18'); 
+     	$(".editor-textarea").val($('.editor').html());
+ 	    $('.editor-textarea').trigger('keyup');
+	    $(elem).on('keyup select', genOp);
+        $(elem).on(event, genOp);
+	    console.log('18'); 
         console.log(elem.value);
-      } else {
-        elem.attachEvent('on' + event, genOp);
-        console.log('19'); 
-      }
-     //}
     });
+
+    $(".btn-toolbar").click(function () {
+        $(".editor-textarea").val($('.editor').html());
+ 	    $('.editor-textarea').trigger('keyup');
+	    $(elem).on('keyup inserttext click select', genOp);
+        $(elem).on(event, genOp);
+	    console.log('18'); 
+        console.log(elem.value);
+    });
+
     return elem.detach_share = function() {
       var _j, _len1, _ref1, _results;
       _this.removeListener('insert', insert_listener);
