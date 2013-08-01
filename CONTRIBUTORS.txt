@@ -1,0 +1,3 @@
+Thanks to the following folks for patches and other contributions:
+
+Johnny Megahan https://github.com/johnmegahan/

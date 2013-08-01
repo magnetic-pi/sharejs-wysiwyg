@@ -2,6 +2,7 @@ sharejs-wysiwyg
 ===============
 
 ShareWysiwyg is an editor that combines the best of both:   ShareJS - https://github.com/share/ShareJS bootstrap-wysiwyg - https://github.com/mindmup/bootstrap-wysiwyg/
+The goal of this project is to offer a easy to implement collaborative WYSIWYG editor.
 
 ##Requirements
 1. NodeJS
@@ -25,7 +26,21 @@ ShareWysiwyg is an editor that combines the best of both:   ShareJS - https://gi
     npm install
 
 ##Start The simple server:
-    bash -x simple_server.sh start|stop|restert
+    bash -x simple_server.sh start|stop|restart
 
 ##Start the share server:
     bash -x share_server.sh start|stop|restart
+
+##Trying the Demo
+After starting the servers navigate to http://localhost:10000/Tiny.html
+
+
+##Implementation
+
+To implement on your site. Set the class on the textarea to be editor-textarea:
+
+    <textarea id="textarea" class="editor-textarea" placeholder="this is a test"></textarea>
+
+Create a div area and set the class to be editor:
+
+    <div id="textarea-editor" class="editor" contenteditable="true"></div>                                                                  
